@@ -6,6 +6,8 @@ require('dotenv').config();
 // express server
 const express = require('express');
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // cors
 const cors = require('cors');
@@ -83,8 +85,11 @@ app.get('/message', (request, response, next) => {
 });
 
 
-sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log(`server is running on port ${port}`);
+sequelize.sync()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`server is running on port ${port}`);
+    });
+  }).catch(error => {
+    console.error('Could not start server', error.message);
   });
-});
