@@ -4,6 +4,8 @@ const express = require('express');
 const router = express.Router();
 const basicAuth = require('./middleware/basic.js');
 
+const bcrypt = require('bcrypt');
+
 const { user } = require('../auth/models/index.js');
 
 router.post('/signup', handleSignup);
@@ -25,10 +27,6 @@ async function handleSignup(req, res, next) {
 
 async function handleSignin(req, res, next) {
   try {
-    const user = {
-      user: req.user,
-      token: req.user.token
-    };
     res.status(200).json(user);
   } catch (e) {
     console.error(e);

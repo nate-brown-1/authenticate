@@ -1,6 +1,8 @@
 // base64 for encoding/decoding
 const base64 = require('base-64');
 
+const bcrypt = require('bcrypt');
+
 const { user } = require('../models/index.js');
 
 module.exports = async (req, res, next) => {
