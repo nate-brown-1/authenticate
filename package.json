@@ -14,10 +14,10 @@
   "name": "authenticate",
   "description": "authenticate",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --verbose --coverage"
   },
   "keywords": [],
   "author": "Nate Brown",
