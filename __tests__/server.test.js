@@ -48,9 +48,8 @@ describe('Test signup and signin', () => {
 
     let signinUser = await request.post('/signin').auth(mom.username, mom.password);
 
-    console.log(signinUser);
-    // expect(newPanda.name).toEqual('Nate');
-    // expect(newPanda.age).toEqual(40);
+    console.log(signinUser.res.statusCode);
+    expect(signinUser.res.statusCode).toEqual(200);
   });
 
 });
